@@ -4,67 +4,65 @@ from. import cards
 RARITY = [
     'Rare',
     'Uncommon',
-    'Common',
-    'Vampire'
+    'Common'
 ]
 
-NUM_RARE = {
-    'third edition' : 1,
-    'sword of caine' : 1,
-    'lords of the night' : 1,
-    'twilight rebellion' : 1,
-    'keepers of tradition' : 1,
-    'ebony kingdom' : 1,
-    'heirs to the blood' : 1
-}
+SET_LIST = [
+    'Third Edition',
+    'Sword of Caine',
+    'Lords of the Night',
+    'Twilight Rebellion',
+    'Keepers of Tradition',
+    'Ebony Kingdom',
+    'Heirs to the Blood'
+]
+
+NUM_VAMPS = 3
+
+NUM_RARES = 1
 
 NUM_UNCOMMON = {
-    'third edition' : 2,
-    'sword of caine' : 0,
-    'lords of the night' : 0,
-    'twilight rebellion' : 0,
-    'keepers of tradition' : 2,
-    'ebony kingdom' : 0,
-    'heirs to the blood' : 0
+    'Third Edition' : 2,
+    'Sword of Caine' : 0,
+    'Lords of the Night' : 0,
+    'Twilight Rebellion' : 0,
+    'Keepers of Tradition' : 2,
+    'Ebony Kingdom' : 0,
+    'Heirs to the Blood' : 0
 }
 
 NUM_COMMON = {
-    'third edition' : 5,
-    'sword of caine' : 7,
-    'lords of the night' : 7,
-    'twilight rebellion' : 7,
-    'keepers of tradition' : 2,
-    'ebony kingdom' : 7,
-    'heirs to the blood' : 7
-}
-
-NUM_VAMPIRE = {
-    'third edition' : 3,
-    'sword of caine' : 3,
-    'lords of the night' : 3,
-    'twilight rebellion' : 3,
-    'keepers of tradition' : 3,
-    'ebony kingdom' : 3,
-    'heirs to the blood' : 3
+    'Third Edition' : 5,
+    'Sword of Caine' : 7,
+    'Lords of the Night' : 7,
+    'Twilight Rebellion' : 7,
+    'Keepers of Tradition' : 5,
+    'Ebony Kingdom' : 7,
+    'Heirs to the Blood' : 7
 }
 
 class Booster:
     def __init__(self, set_name):
         self.set = set_name
-        self.num_rares = NUM_RARE[set_name]
+        self.num_rares = NUM_RARES
         self.num_uncommons = NUM_UNCOMMON[set_name]
         self.num_commons = NUM_COMMON[set_name]
-        self.num_vampires = NUM_VAMPIRE[set_name]
+        self.num_vampires = NUM_VAMPS
         self.num_rarity = {'Rare' : self.num_rares, 'Uncommon' : self.num_uncommons, 'Common' : self.num_commons, 'Vampire' : self.num_vampires}
 
 def get_booster():
-    booster = []
+    booster_library = []
+    booster_crypt = []
     
     # for each rarity
     for rarity in RARITY:
         # get a number of cards at the rarty
         get_cards(rarity)
-        # add the cards to the booster
+        # add the cards to booster_library
+
+    get_cards('Vampire')
+    # add the cards to booster_crypt
+    
 
 def get_cards(self, rarity):
     cards = []
